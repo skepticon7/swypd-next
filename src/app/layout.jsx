@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import {ServiceProvider} from "@/context/context";
+import {ServiceProvider} from "@/context/context.jsx";
 
 export const metadata = {
     title: "SWYPD MEDIA - Digital Experiences That Grow Your Business",
