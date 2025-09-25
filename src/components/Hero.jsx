@@ -4,7 +4,7 @@ import SectionWrapper from "../hoc/SectionWrapper.jsx";
 import {motion} from "framer-motion"
 import { fadeIn } from "../utils/motion.js";
 import Reveal from "./Reveal.jsx";
-import {scrollToSection} from "@/utils/scrollToSection.js";
+import {scrollToSection} from "../utils/scrollToSection.js";
 
 
 const Hero = () => {
