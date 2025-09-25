@@ -1,4 +1,3 @@
-import {ad, adobe, blender, branding, coding, partnership, quality, transparency, users, ve} from "../assets/index.js";
 
 const navItems = [
     {
