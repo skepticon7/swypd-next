@@ -5,7 +5,8 @@
       "@/*": ["./src/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/context/*": ["./src/context/*"],
-      "@/components/*": ["./src/components/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*" : ["./src/lib/*"]
     }
   }
 }
