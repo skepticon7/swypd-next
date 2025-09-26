@@ -69,9 +69,6 @@ const valuesItems = [
     }
 ]
 
-const sliderItems = [
-    adobe , adobe , adobe , adobe  , adobe , adobe
-]
 
 const pricing = {
     'ads': {
@@ -192,4 +189,4 @@ const pricing = {
     }
 }
 
-export {navItems , valuesItems , sliderItems , pricing , faqItems};
+export {navItems , valuesItems  , pricing , faqItems};
