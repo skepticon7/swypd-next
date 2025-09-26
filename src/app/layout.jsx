@@ -9,20 +9,20 @@ export const metadata = {
         icon: "/favicon.ico",
     },
     openGraph: {
-        url: "https://www.swypdmedia.com",
+        url: "https://swypd-next.vercel.app",
         type: "website",
         title: "SWYPD MEDIA - Digital Experiences That Grow Your Business",
         description: "From design to development and marketing, our team helps you turn ideas into powerful digital solutions.",
-        images: ["https://www.swypdmedia.com/ArtBoard3.jpg"],
+        images: ["https:/swypd-next.vercel.app/ArtBoard 3.jpg"],
     },
     twitter: {
         card: "summary_large_image",
         title: "SWYPD MEDIA - Digital Experiences That Grow Your Business",
         description: "From design to development and marketing, our team helps you turn ideas into powerful digital solutions.",
-        images: ["https://www.swypdmedia.com/ArtBoard3.jpg"],
+        images: ["https:/swypd-next.vercel.app/ArtBoard 3.jpg"],
     },
     alternates: {
-        canonical: "https://www.swypdmedia.com",
+        canonical: "https://swypd-next.vercel.app",
     },
 };
 
