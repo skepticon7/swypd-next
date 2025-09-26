@@ -19,7 +19,6 @@ import valuesCircle from "./values-circle.png";
 import transparency from "./transparency.svg";
 import quality from "./quality.svg";
 import partnership from "./partnership.svg";
-import adobe from "./adobe.svg";
 import blender from "./logo-blender.svg";
 import djValues from "./dj-values.png";
 import swypdValues from './swypd-values.png';
@@ -48,8 +47,7 @@ export {
     SwypdLogo, Linkedin, X, Instagram, Facebook, Tiktok, Hamburger,
     // images
     swypdLogo, heroArrow, heroCircle, heroLine1, heroLine2, heroSlime,
-    users, valuesCircle, transparency, quality, partnership,
-    adobe, blender, djValues, swypdValues, partyValues, partyValues2,
+    users, valuesCircle, transparency, quality, partnership, blender, djValues, swypdValues, partyValues, partyValues2,
     service1values, service2values, projectSlime, discover, launch, support,
     create, ad, branding, check, coding, pricingSlime, ve,
     partyValues3, artBoard1, artBoard2, artBoard3
