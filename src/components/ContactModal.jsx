@@ -73,7 +73,7 @@ export default function ContactModal ({ isOpen, onClose })  {
         setLoading(true);
 
         try {
-            const contactResponse = await fetch('/api/sendContact', {
+            const contactResponse = await fetch('/api/contact   ', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),

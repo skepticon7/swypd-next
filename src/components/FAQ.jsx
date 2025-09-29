@@ -48,7 +48,7 @@ const FAQ = () => {
 
         try {
             setLoading(true);
-            const response = await fetch('/api/sendContact', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
