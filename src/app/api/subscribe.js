@@ -1,50 +1,58 @@
-import fetch from 'node-fetch';
-
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed. Please use POST.' });
-    }
-
-    const { email } = req.body;
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return res.status(400).json({ error: 'A valid email address is required.' });
-    }
-
-    const data = {
-        email: email,
-        listIds: [3],
-        updateEnabled: false,
-    };
-
+// app/api/newsletter/route.js
+export async function POST(request) {
     try {
+        const { email } = await request.json();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return Response.json(
+                { error: 'A valid email address is required.' },
+                { status: 400 }
+            );
+        }
+
+        const data = {
+            email: email,
+            listIds: [3],
+            updateEnabled: false,
+        };
 
         const response = await fetch('https://api.brevo.com/v3/contacts', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'api-key': process.env.BREVO_API_KEY || 'YOUR_BREVO_API_KEY'
+                'api-key': process.env.BREVO_API_KEY
             },
             body: JSON.stringify(data)
         });
 
         const responseData = await response.json();
 
-
         if (response.ok) {
-            res.status(200).json({ message: 'Successfully subscribed to the newsletter!' });
+            return Response.json(
+                { message: 'Successfully subscribed to the newsletter!' },
+                { status: 200 }
+            );
         } else {
             console.error('Brevo API error:', responseData);
             if (responseData.code === 'duplicate_parameter') {
-                res.status(409).json({ error: 'This email is already subscribed.' });
+                return Response.json(
+                    { error: 'This email is already subscribed.' },
+                    { status: 409 }
+                );
             } else {
-                res.status(400).json({ error: responseData.message || 'Failed to subscribe. Please try again later.' });
+                return Response.json(
+                    { error: responseData.message || 'Failed to subscribe. Please try again later.' },
+                    { status: 400 }
+                );
             }
         }
 
     } catch (error) {
         console.error('Server error:', error);
-        res.status(500).json({ error: 'Internal server error. Please try again later.' });
+        return Response.json(
+            { error: 'Internal server error. Please try again later.' },
+            { status: 500 }
+        );
     }
 }

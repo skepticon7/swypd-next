@@ -1,19 +1,14 @@
-import fetch from 'node-fetch';
-
-export default async function handler(req, res) {
-
-
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed. Use POST.' });
-    }
-
+// app/api/contact/route.js
+export async function POST(request) {
     try {
-        const { name, email, message , service } = req.body;
+        const { name, email, message, service } = await request.json();
 
         if (!name || !email || !message) {
-            return res.status(400).json({ error: 'All fields are required.' });
+            return Response.json(
+                { error: 'All fields are required.' },
+                { status: 400 }
+            );
         }
-
 
         const brevoData = {
             sender: {
@@ -32,7 +27,7 @@ export default async function handler(req, res) {
             htmlContent: `
         <h3>New message from your website:</h3>
         <p><strong>From:</strong> ${name} (${email})</p>
-        <p><strong>Service :</strong> ${service}</p>
+        <p><strong>Service:</strong> ${service}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
         
@@ -54,12 +49,22 @@ export default async function handler(req, res) {
         if (!brevoResponse.ok) {
             const errorData = await brevoResponse.json();
             console.error('Brevo API Error:', errorData);
-            return res.status(500).json({ error: 'Failed to send message.' });
+            return Response.json(
+                { error: 'Failed to send message.' },
+                { status: 500 }
+            );
         }
-        res.status(200).json({ message: 'Message sent successfully!' });
+
+        return Response.json(
+            { message: 'Message sent successfully!' },
+            { status: 200 }
+        );
 
     } catch (error) {
         console.error('Server Error:', error);
-        res.status(500).json({ error: 'Internal server error.' });
+        return Response.json(
+            { error: 'Internal server error.' },
+            { status: 500 }
+        );
     }
 }
