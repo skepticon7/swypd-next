@@ -1,5 +1,5 @@
 // app/page.jsx
-import { Hero, How, Navbar, Pricing, Projects, Values, CTA, Footer, FAQ } from "@/components";
+import { Hero, How, Navbar, Projects, Values, CTA, Footer, FAQ } from "@/components";
 import { Toaster } from "react-hot-toast";
 
 export default function HomePage() {
@@ -10,7 +10,6 @@ export default function HomePage() {
             <Values />
             <Projects />
             <How />
-            <Pricing />
             <FAQ />
             <div className="bg-primary-red">
                 <CTA />

@@ -12,10 +12,10 @@ const navItems = [
         id : "how",
         title : "How it works"
     },
-    {
-        id : "pricing",
-        title : "Pricing"
-    },
+    // {
+    //     id : "pricing",
+    //     title : "Pricing"
+    // },
     {
         id : "faq",
         title : "FAQ"
