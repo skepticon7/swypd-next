@@ -36,16 +36,14 @@ const NavbarDropdown = ({ dropDownOpen, setDropDownOpen, active, setActive, setS
                     animate={{ x: 0 }}
                     exit={{ x: "100%" }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="absolute top-0 right-0 bg-tertiary-white/50 z-40 backdrop-blur-lg 2xs:w-full 2xs:h-screen md:w-2/3"
+                    className="absolute top-0 right-0 bg-tertiary-white/50 z-40 backdrop-blur-lg 2xs:w-full md:w-2/3"
                 >
-                    <div className="relative pt-20 pb-10 xs:px-4 2xs:px-3 sm:px-6 flex flex-col min-h-screen">
-                        {/* Logo */}
-                        <button aria-label="Scrolls to top of the page" onClick={handleLogoClick}>
+                    <div className="relative pt-20 pb-10 xs:px-4 2xs:px-3 sm:px-6 flex items-center justify-start">
+                        <button aria-label='Scrolls to top of the page' onClick={handleLogoClick}>
                             <SwypdLogo className="md:w-28 sm:w-28 lg:w-30 2xs:hidden text-primary-red md:block left-5 h-auto top-7 absolute" />
                         </button>
 
-                        {/* NAV LINKS */}
-                        <div className="flex flex-col flex-grow">
+                        <div className="flex flex-col items-start justify-center gap-50 w-full">
                             <ul className="list-none flex flex-col gap-4">
                                 {navItems.map((item, index) => (
                                     <motion.li
@@ -54,38 +52,35 @@ const NavbarDropdown = ({ dropDownOpen, setDropDownOpen, active, setActive, setS
                                         initial="hidden"
                                         animate="show"
                                         role="menuitem"
-                                        className={`relative ${
-                                            active === item.title ? "text-primary-red" : "text-secondary-black"
-                                        } cursor-pointer oswald-regular 2xs:text-md xs:text-lg sm:text-xl duration-200 transition-colors`}
+                                        className={`relative ${active === item.title ? "text-primary-red" : "text-secondary-black"} cursor-pointer oswald-regular 2xs:text-md xs:text-lg sm:text-xl duration-200 transition-colors`}
                                         onClick={() => scrollToSection(item.id, item.title)}
                                     >
-                                        <button className="cursor-pointer">{item.title}</button>
+                                        <button className='cursor-pointer'>{item.title}</button>
                                     </motion.li>
                                 ))}
                             </ul>
-                        </div>
 
-                        {/* FOOTER (pushed to bottom with mt-auto) */}
-                        <div className="flex flex-col items-center justify-center w-full gap-2 mt-auto">
-                            <motion.p
-                                initial="hidden"
-                                animate="show"
-                                variants={fadeIn("right", "spring", 0.2, 0.5)}
-                                className="text-secondary-black 2xs:text-md xs:text-lg sm:text-xl oswald-semibold"
-                            >
-                                Socials
-                            </motion.p>
-                            <div className="flex items-start justify-center gap-1.5">
-                                <Facebook aria-label="Visit our Facebook page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 duration-200 transition-colors" />
-                                <Instagram aria-label="Visit our Instagram page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
-                                <X aria-label="Visit our X page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
-                                <Tiktok aria-label="Visit our Tiktok page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
-                                <Linkedin aria-label="Visit our Linkedin page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
+                            <div className="flex flex-col items-center justify-center w-full gap-2">
+                                <motion.p
+                                    initial="hidden"
+                                    animate="show"
+                                    variants={fadeIn("right", "spring", 0.2, 0.5)}
+                                    className="text-secondary-black 2xs:text-md xs:text-lg sm:text-xl oswald-semibold"
+                                >
+                                    Socials
+                                </motion.p>
+                                <div className="flex items-start justify-center gap-1.5">
+                                    <Facebook aria-label="Visit our Facebook page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 duration-200 transition-colors" />
+                                    <Instagram aria-label="Visit our Instagram page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
+                                    <X aria-label="Visit our X page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
+                                    <Tiktok aria-label="Visit our Tiktok page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
+                                    <Linkedin aria-label="Visit our Linkedin page" className="cursor-pointer text-secondary-black xs:w-7 xs:h-7 sm:w-8 sm:h-8 duration-200 transition-colors" />
+                                </div>
+                                <div className="w-full h-px bg-secondary-black mt-5"></div>
+                                <p className="oswald-regular xs:text-xs md:text-sm lg:text-base xl:text-lg text-secondary-black text-sm mt-2">
+                                    © 2025 SWYPD. All rights reserved.
+                                </p>
                             </div>
-                            <div className="w-full h-px bg-secondary-black mt-5"></div>
-                            <p className="oswald-regular xs:text-xs md:text-sm lg:text-base xl:text-lg text-secondary-black text-sm mt-2">
-                                © 2025 SWYPD. All rights reserved.
-                            </p>
                         </div>
                     </div>
                 </motion.div>
@@ -93,6 +88,7 @@ const NavbarDropdown = ({ dropDownOpen, setDropDownOpen, active, setActive, setS
         </AnimatePresence>
     );
 };
+
 export default function Navbar() {
     const [active, setActive] = useState("");
     const [scrolled, setScrolled] = useState(false);
