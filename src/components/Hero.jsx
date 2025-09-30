@@ -55,7 +55,6 @@ const Hero = () => {
                     <div className='flex flex-col items-center justify-center gap-5 relative'>
                         <Reveal>
                             <h2
-                                variants={fadeIn("up", "spring", 0.6, 1)}
                                 className="oswald-extralight text-tertiary-white text-center tracking-wide"
                             >
                         <span className=" xl:text-xl md:text-lg sm:text-md xs:text-xs text-xs block leading-relaxed">
@@ -70,7 +69,7 @@ const Hero = () => {
 
                                 <motion.button
                                     aria-label={'it scrolls to the pricing section'}
-                                    onClick={() => scrollToSection("pricing")}
+                                    onClick={() => scrollToSection("cta")}
                                     variants={fadeIn("up", "spring", 0.8, 1)}
                                     className="akira text-tertiary-white  md:mt-4 bg-primary-red/90 hover:bg-primary-red
                       duration-200 text-sm cursor-pointer rounded-xs xl:text-sm text-xs   transition-colors

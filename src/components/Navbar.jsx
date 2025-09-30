@@ -103,7 +103,7 @@ export default function Navbar() {
 
     const handleLogoClick = () => {
         setActive("");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth"});
         setScrolled(false);
         setDropDownOpen(false);
     };
